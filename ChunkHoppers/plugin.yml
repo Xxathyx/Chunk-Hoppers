@@ -1,0 +1,11 @@
+main: fr.xxathyx.chunkhoppers.Main
+name: ChunkHoppers
+version: 1.0
+author: Xxathyx
+description: ChunkHoppers
+
+commands:
+  hoppers:
+    description: "Give an chunk hopper."
+    usage: 
+    permission: chunkhoppers.command.hoppers
