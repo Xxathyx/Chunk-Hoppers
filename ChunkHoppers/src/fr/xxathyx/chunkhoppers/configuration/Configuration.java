@@ -17,10 +17,6 @@ public class Configuration {
 	
 	private File configuration = new File(plugin.getDataFolder(), "configuration.yml");
 	
-	public Configuration() {
-		
-	}
-	
 	private FileConfiguration fileconfiguration;
 	
 	public void setup() throws IOException {
@@ -31,21 +27,21 @@ public class Configuration {
 				
 		if(!configuration.exists()) {
 			configuration.createNewFile();
+			
+			fileconfiguration = new YamlConfiguration();
+			
+			fileconfiguration.set("item.name", "&6&lChunk Recepter");
+			fileconfiguration.set("item.description", "&eRetrieving elements within a chunk");
+			fileconfiguration.set("insufficient_permissions", "&cYou don't have permission to execute this command.");
+			fileconfiguration.set("invalid_number", "&c%hoppers_number% is not a valid number.");
+			fileconfiguration.set("player_offline", "&c%player_name% is not online.");
+			fileconfiguration.set("player_inventory_full", "&c%player_name% inventory is full.");
+			fileconfiguration.set("destroy_inventory_full", "&cYou cannot recover this block, your inventory is full.");
+			fileconfiguration.set("send_hoppers", "&aYou have successfully sent " + "%hoppers_number%" + " Chunk Hoppers to " + "%player_name%.");
+			fileconfiguration.set("receive_hoppers", "&aYou received " + "%hoppers_number%" + " Chunk Hoppers.");
+			
+			fileconfiguration.save(configuration);
 		}
-		
-		fileconfiguration = new YamlConfiguration();
-		
-		fileconfiguration.set("item.name", "&6&lChunk Recepter");
-		fileconfiguration.set("item.description", "&eRetrieving elements within a chunk");
-		fileconfiguration.set("insufficient_permissions", "&cYou don't have permission to execute this command.");
-		fileconfiguration.set("invalid_number", "&c%hoppers_number% is not a valid number.");
-		fileconfiguration.set("player_offline", "&c%player_name% is not online.");
-		fileconfiguration.set("player_inventory_full", "&c%player_name% inventory is full.");
-		fileconfiguration.set("destroy_inventory_full", "&cYou cannot recover this block, your inventory is full.");
-		fileconfiguration.set("send_hoppers", "&aYou have successfully sent " + "%hoppers_number%" + " Chunk Hoppers to " + "%player_name%.");
-		fileconfiguration.set("receive_hoppers", "&aYou received " + "%hoppers_number%" + " Chunk Hoppers.");
-		
-		fileconfiguration.save(configuration);
 	}
 	
 	public FileConfiguration getConfigFile() {
