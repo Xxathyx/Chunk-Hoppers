@@ -22,13 +22,13 @@ public class Hoppers implements CommandExecutor {
 				if(arg3.length == 3) {
 					if(arg3[0].equalsIgnoreCase("give")) {
 				        try { 
-				            Integer.parseInt(arg3[2].toString()); 
+				            Integer.parseInt(arg3[2]); 
 				        } catch (NumberFormatException e) { 
-				            sender.sendMessage(configuration.invalid_number(arg3[2].toString()));
+				            sender.sendMessage(configuration.invalid_number(arg3[2]));
 				            return false;
 				        }
 				        
-						String targetName = arg3[1].toString();
+						String targetName = arg3[1];
 						Player target = Bukkit.getPlayer(targetName);
 						
 						if(!(target.isOnline())) {
@@ -40,15 +40,15 @@ public class Hoppers implements CommandExecutor {
 							sender.sendMessage(configuration.player_inventory_full(targetName));
 							return false;
 						}else {
-							target.getInventory().addItem(items.hopper(Integer.parseInt(arg3[2].toString())));
-							sender.sendMessage(configuration.send_hoppers(arg3[2].toString(), targetName));
-							target.sendMessage(configuration.receive_hoppers(arg3[2].toString()));
+							target.getInventory().addItem(items.hopper(Integer.parseInt(arg3[2])));
+							sender.sendMessage(configuration.send_hoppers(arg3[2], targetName));
+							target.sendMessage(configuration.receive_hoppers(arg3[2]));
 							return false;
 						}
 					}
 				}else if(arg3.length == 2) {
 					
-					String targetName = arg3[1].toString();
+					String targetName = arg3[1];
 					Player target = Bukkit.getPlayer(targetName);
 					
 					if(!(Bukkit.getOnlinePlayers().contains(target))) {

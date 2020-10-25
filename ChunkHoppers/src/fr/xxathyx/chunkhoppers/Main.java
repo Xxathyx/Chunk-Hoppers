@@ -11,7 +11,7 @@ import fr.xxathyx.chunkhoppers.listeners.DestroyRecepter;
 import fr.xxathyx.chunkhoppers.listeners.EntityDeath;
 
 public class Main extends JavaPlugin {
-		
+	
 	private Configuration configuration;
 		
 	public void onEnable() {
@@ -28,9 +28,5 @@ public class Main extends JavaPlugin {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void onDisable() {
-		
 	}
 }

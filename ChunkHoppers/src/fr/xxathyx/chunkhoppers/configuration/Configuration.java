@@ -26,7 +26,6 @@ public class Configuration {
 		}
 				
 		if(!configuration.exists()) {
-			configuration.createNewFile();
 			
 			fileconfiguration = new YamlConfiguration();
 			
