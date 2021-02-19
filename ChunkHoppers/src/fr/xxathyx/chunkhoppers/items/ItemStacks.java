@@ -19,8 +19,8 @@ public class ItemStacks {
 	    ItemMeta hopper_meta = hopper.getItemMeta();
 	    
 	    hopper_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-	    hopper_meta.setDisplayName(configuration.getItemName());
-	    hopper_meta.setLore(Arrays.asList(new String[] { configuration.getItemDescription() }));
+	    hopper_meta.setDisplayName(configuration.hoppers_item_name());
+	    hopper_meta.setLore(Arrays.asList(new String[] { configuration.hoppers_item_description() }));
 	    
 	    hopper.setItemMeta(hopper_meta);
 	    

@@ -1,5 +1,6 @@
 package fr.xxathyx.chunkhoppers.listeners;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Hopper;
 import org.bukkit.event.EventHandler;
@@ -21,7 +22,7 @@ public class DestroyRecepter implements Listener {
 			
 			Hopper hopper = (Hopper) event.getBlock().getState();
 			
-			if(hopper.getInventory().getName().equals(configuration.getItemName())) {
+			if(hopper.getInventory().getName().equals(configuration.hoppers_item_name())) {
 				
 				if(event.getPlayer().getInventory().firstEmpty() == -1) {
 					event.setCancelled(true);
@@ -31,6 +32,10 @@ public class DestroyRecepter implements Listener {
 					event.setCancelled(true);
 					event.getBlock().setType(Material.AIR);
 					event.getPlayer().getInventory().addItem(item.hopper(1));
+					
+					System.out.print(ChatColor.DARK_GRAY + "[Chunk-Hoppers]: " + ChatColor.GRAY + event.getPlayer().getName() + " picked up an chunk-hopper from X: " +
+					event.getBlock().getLocation().getX() + " Y: " + event.getBlock().getLocation().getY() + " Z: " + event.getBlock().getLocation().getZ());
+					
 					event.getPlayer().sendMessage(configuration.receive_hoppers("1"));
 					return;
 				}

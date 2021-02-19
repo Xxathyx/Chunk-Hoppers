@@ -1,11 +1,12 @@
 main: fr.xxathyx.chunkhoppers.Main
 name: ChunkHoppers
-version: 1.2
+version: 1.3
 author: Xxathyx
 description: ChunkHoppers
+softdepend: [Vault]
 
 commands:
   hoppers:
-    description: "Give an chunk hopper."
+    description: "Chunk Hoppers main commands."
     usage: 
     permission: chunkhoppers.command.hoppers
