@@ -114,9 +114,11 @@ public class BlockGrow implements Listener {
 		            item = CropsUtils.fromCrops(new Crops(event.getNewState().getType(), (byte) state));
 	            }
 	            	                
-	            for (int i = 0; i < chunk.getTileEntities().length; i++) {        	
+	            for(int i = 0; i < chunk.getTileEntities().length; i++) {        	
 	                if (chunk.getTileEntities()[i] instanceof Hopper) {
-	                    hopper = (Hopper) chunk.getTileEntities()[i];
+		                if(((Hopper) chunk.getTileEntities()[i]).getInventory().getName().equals(configuration.hoppers_item_name())) {
+		                    hopper = (Hopper) chunk.getTileEntities()[i];
+		                }
 	                }
 	            }
 	    		
